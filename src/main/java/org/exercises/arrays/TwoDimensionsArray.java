@@ -1,12 +1,13 @@
 package org.exercises.arrays;
 
-import org.exercises.ToolsClass;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.IntStream;
+
+import static org.exercises.ToolsClass.SCANNER_SKIP_PATTERN;
+import static org.exercises.ToolsClass.getFile;
 
 public class TwoDimensionsArray {
 
@@ -15,14 +16,14 @@ public class TwoDimensionsArray {
             "3_1", "3_2", "3_3", "3_4",
             "4_1", "4_2", "4_3", "4_4"};
 
-    private final Scanner scanner = new Scanner(ToolsClass.getFile(TwoDimensionsArray.class));
+    private final Scanner scanner = new Scanner(getFile(TwoDimensionsArray.class));
 
     public int execute() {
         int[][] arr = new int[6][6];
 
         for (int i = 0; i < 6; i++) {
             String[] arrRowItems = scanner.nextLine().split(" ");
-            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+            scanner.skip(SCANNER_SKIP_PATTERN);
 
             for (int j = 0; j < 6; j++) {
                 int arrItem = Integer.parseInt(arrRowItems[j]);

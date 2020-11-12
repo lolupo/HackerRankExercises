@@ -6,6 +6,7 @@ import java.io.InputStream;
 
 @Slf4j
 public class ToolsClass {
+    public static final String SCANNER_SKIP_PATTERN = "(\r\n|[\n\r\u2028\u2029\u0085])?";
     private static final ClassLoader CLASSLOADER = ToolsClass.class.getClassLoader();
 
     private ToolsClass() {
