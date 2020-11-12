@@ -15,5 +15,5 @@ Java 11.
 
 ### Support
 
-* exercise are available at [HackerRank.com](https://www.hackerrank.com)
+* exercises are available at [HackerRank.com](https://www.hackerrank.com)
 
