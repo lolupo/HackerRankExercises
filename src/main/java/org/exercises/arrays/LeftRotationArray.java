@@ -32,7 +32,7 @@ public class LeftRotationArray {
         return Arrays.stream(rotLeft(a, d)).mapToObj(String::valueOf).collect(Collectors.joining(" "));
     }
 
-    static int[] rotLeft(int[] a, int d) {
+    private int[] rotLeft(int[] a, int d) {
         Deque<Integer> arrayDeque = Arrays.stream(a).boxed().collect(Collectors.toCollection(ArrayDeque::new));
         IntStream.range(0, d).forEachOrdered(value -> arrayDeque.add(arrayDeque.pollFirst()));
 
