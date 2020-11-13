@@ -6,11 +6,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class JumpingOnCloudsTest {
 
-    private final JumpingOnClouds jumpingOnClouds = new JumpingOnClouds();
+    private final JumpingOnClouds subject = new JumpingOnClouds();
 
     @Test
-    void beTested() {
-        assertThat(jumpingOnClouds.execute()).isEqualTo(3);
+    void test() {
+        assertThat(subject.execute()).isEqualTo(3);
     }
 
 }

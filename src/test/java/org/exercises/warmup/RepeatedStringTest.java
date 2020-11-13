@@ -6,11 +6,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RepeatedStringTest {
 
-    private final RepeatedString repeatedString = new RepeatedString();
+    private final RepeatedString subject = new RepeatedString();
 
     @Test
-    void beTested() {
-        assertThat(repeatedString.execute()).isEqualTo(7);
+    void test() {
+        assertThat(subject.execute()).isEqualTo(7);
     }
 
 }

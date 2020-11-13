@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SalesByMatchTest {
-    private final SalesByMatch salesByMatch = new SalesByMatch();
+    private final SalesByMatch subject = new SalesByMatch();
 
     @Test
-    public void beTested() {
-        assertThat(salesByMatch.execute()).isEqualTo(3);
+    public void test() {
+        assertThat(subject.execute()).isEqualTo(3);
     }
 }

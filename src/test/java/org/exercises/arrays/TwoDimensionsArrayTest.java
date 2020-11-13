@@ -6,10 +6,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class TwoDimensionsArrayTest {
 
-    private final TwoDimensionsArray twoDimensionsArray = new TwoDimensionsArray();
+    private final TwoDimensionsArray subject = new TwoDimensionsArray();
 
     @Test
-    void beTested() {
-        assertThat(twoDimensionsArray.execute()).isEqualTo(19);
+    void test() {
+        assertThat(subject.execute()).isEqualTo(19);
     }
 }

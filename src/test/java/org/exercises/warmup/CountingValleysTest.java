@@ -8,11 +8,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CountingValleysTest {
 
-    private final CountingValleys countingValleys = new CountingValleys();
+    private final CountingValleys subject = new CountingValleys();
 
     @Test
-    void beTested() throws IOException {
-        assertThat(countingValleys.execute()).isEqualTo(1);
+    void test() throws IOException {
+        assertThat(subject.execute()).isEqualTo(1);
     }
 
 
