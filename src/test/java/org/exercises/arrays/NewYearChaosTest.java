@@ -10,7 +10,7 @@ class NewYearChaosTest {
 
     @Test
     public void test() {
-        assertThat(subject.execute()).isEqualTo("3_Too chaotic");
+        assertThat(subject.execute()).isEqualTo("7");
     }
 
 }
