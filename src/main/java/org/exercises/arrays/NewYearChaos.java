@@ -1,7 +1,5 @@
 package org.exercises.arrays;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.StringJoiner;
 import java.util.stream.IntStream;
@@ -39,51 +37,21 @@ public class NewYearChaos {
         return result.toString();
     }
 
-    private String minimumBribes(int[] reference) {
+    private String minimumBribes(int[] queue) {
         //For each person we need to calculate the difference between is place and is theoretical place
         //People with positive difference bribed other people and go forward
         //People with negative difference been bribed and push backward by other people
-
-        //Initialize people map
-        Map<Integer, Integer> peoplePlaceDifference = new HashMap<>();
-        IntStream.range(1, reference.length + 1).forEach(operand -> peoplePlaceDifference.put(operand, 0));
-
-        //Calculate Difference
-        IntStream.range(1, reference.length + 1).forEach(operand -> peoplePlaceDifference.replace(reference[operand - 1], reference[operand - 1] - operand));
-
-        //Among the people who bribed : Is there someone who bribed more than twice ?
-        //Among the people who been bribed : How many people with a greater number are before them ?
-        int bribeCount = 0;
-        for (int i = 1; i < reference.length + 1; i++) {
-            if (peoplePlaceDifference.get(i) > 2) {
-                return "Too chaotic";
-            } else if (peoplePlaceDifference.get(i) < 0) {
-                int finalI = i;
-                bribeCount += IntStream.range(0, lookingForIndex(i, reference)).map(operand -> reference[operand] > finalI ? 1 : 0).sum();
-            }
-        }
-        return String.valueOf(bribeCount);
-    }
-
-    private int lookingForIndex(int wanted, int[] reference) {
-        return IntStream.range(0, reference.length).filter(i -> reference[i] == wanted).findFirst().getAsInt();
-    }
-
-    //Better optimization
-/*    private String minimumBribes(int[] q) {
+        //Because a person can only bribe two times he can only go two places forward
+        //So for a person that have been bribed the number of people that bribe him is equal to the number of people with a greater number in the two places above him
+        //Sum this number give us the total number of bribes
         int bribes = 0;
-        for (int i = 0; i < q.length; i++) {
-            if (q[i] - (i + 1) > 2) {
+        for (int i = 0; i < queue.length; i++) {
+            if (queue[i] - (i + 1) > 2) {
                 return "Too chaotic";
             }
-            for (int j = 0; j < i; j++) {
-                if (q[j] > q[i]) {
-                    bribes++;
-                }
-            }
+            final int finalI = i;
+            bribes += IntStream.range(Math.max(0, queue[finalI] - 2), finalI).map(operand -> queue[operand] > queue[finalI] ? 1 : 0).sum();
         }
         return String.valueOf(bribes);
     }
-    */
-
 }
