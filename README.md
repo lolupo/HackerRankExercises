@@ -3,7 +3,7 @@
 Solution to HackerRank Interview Preparation Kit.
 
 ## BASE SETUP
-Java 8``.
+Java 8.
 ### Dependencies
 
 * Lombok
